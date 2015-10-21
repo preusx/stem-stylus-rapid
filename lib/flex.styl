@@ -1,0 +1,128 @@
+/* ========================================================================
+ *
+ * Flex
+ *
+ * Code is from:
+ *      https://github.com/jxnblk/basscss/blob/master/scss/_flex-object.scss
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_flex_prefix     ?= $rapid_prefix
+$rapid_flex_responsive ?= $rapid_responsive
+$rapid_flex_build      ?= $rapid_build
+
+
+/**
+ * Styles
+ * ======================================================================== */
+
+rapid-flex-build($responsive=$rapid_flex_responsive)
+    $selector = selector('&')
+    $template = (!$selector || $selector == '.') ? '.%s' :\
+        $selector + $bem_ps + '%s'
+
+    $selector = $template % unquote('flex')
+
+    /{$selector}
+        display -webkit-box
+        display -webkit-flex
+        display -ms-flexbox
+        display flex
+
+        if !!$rapid_flex_responsive == true
+            +media-respond($bem_ms + '%s', false)
+                display -webkit-box
+                display -webkit-flex
+                display -ms-flexbox
+                display flex
+
+
+        &{$bem_ms}
+
+            &column
+                -webkit-box-orient vertical
+                -webkit-box-direction normal
+                -webkit-flex-direction column
+                -ms-flex-direction column
+                flex-direction column
+
+            &wrap
+                -webkit-flex-wrap wrap
+                -ms-flex-wrap wrap
+                flex-wrap wrap
+
+
+            &center
+                -webkit-box-align center
+                -webkit-align-items center
+                -ms-flex-align center
+                align-items center
+
+            &baseline
+                -webkit-box-align baseline
+                -webkit-align-items baseline
+                -ms-flex-align baseline
+                align-items baseline
+
+            &stretch
+                -webkit-box-align stretch
+                -webkit-align-items stretch
+                -ms-flex-align stretch
+                align-items stretch
+
+            &start
+                -webkit-box-align start
+                -webkit-align-items flex-start
+                -ms-flex-align start
+                align-items flex-start
+
+            &end
+                -webkit-box-align end
+                -webkit-align-items flex-end
+                -ms-flex-align end
+                align-items flex-end
+
+
+            &first
+                -webkit-box-ordinal-group 0
+                -webkit-order -1
+                -ms-flex-order -1
+                order -1
+
+            &last
+                -webkit-box-ordinal-group 1025
+                -webkit-order 1024
+                -ms-flex-order 1024
+                order 1024
+
+
+            &auto
+                -webkit-box-flex 1
+                -webkit-flex 1 1 auto
+                -ms-flex 1 1 auto
+                flex 1 1 auto
+
+            &grow
+                -webkit-box-flex 1
+                -webkit-flex 1 0 auto
+                -ms-flex 1 0 auto
+                flex 1 0 auto
+
+            &none
+                -webkit-box-flex 0
+                -webkit-flex none
+                -ms-flex none
+                flex none
+
+
+
+if $rapid_flex_build
+    {$rapid_flex_prefix}
+        rapid-flex-build()

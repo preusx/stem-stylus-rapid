@@ -1,0 +1,91 @@
+/* ========================================================================
+ *
+ * Sizes
+ *
+ * Legend:
+ *
+ * wh = width
+ * ht = height
+ *
+ * 10  =   10%
+ * 20  =   20%
+ * 25  =   25%
+ * 40  =   40%
+ * 50  =   50%
+ * 60  =   60%
+ * 75  =   75%
+ * 80  =   80%
+ * 100 =   100%
+ *
+ * bb  =   border-bbox
+ * cb  =   content-box
+ * mx  =   max-content
+ * mn  =   min-content
+ * av  =   available
+ * fc  =   fit-content
+ * at  =   auto
+ * i   =   inherit
+ *
+ * Inspired by:
+ *      https://www.npmjs.com/package/tachyons-heights
+ *      https://www.npmjs.com/package/tachyons-widths
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_sizes_prefix     ?= $rapid_prefix
+$rapid_sizes_responsive ?= $rapid_responsive
+$rapid_sizes_build      ?= $rapid_build
+
+$rapid_sizes_properties  = extend({
+        'wh': {
+            '': ('width')
+        },
+        'ht': {
+            '': ('height')
+        }
+    }, $rapid_sizes_properties)
+
+$rapid_sizes_sizes       = {
+    '10':     10%
+    '20':     20%
+    '25':     25%
+    '33':     33.333%
+    '40':     40%
+    '50':     50%
+    '60':     60%
+    '66':     66.333%
+    '75':     75%
+    '80':     80%
+    '100':    100%
+
+    'bb':    border-box
+    'cb':    content-box
+    'mx':    max-content
+    'mn':    min-content
+    'av':    available
+    'fc':    fit-content
+    'at':    auto
+    'i':     inherit
+}
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-sizes-build($responsive=$rapid_sizes_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort($rapid_sizes_properties, $rapid_sizes_sizes,
+        $template, $responsive)
+
+
+if $rapid_sizes_build
+    {$rapid_sizes_prefix}
+        rapid-sizes-build()

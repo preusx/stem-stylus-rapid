@@ -1,0 +1,62 @@
+/* ========================================================================
+ *
+ * Font weight
+ *
+ * Legend:
+ *
+ * fw = font-weight
+ *
+ * thin         = 100
+ * xlight       = 200
+ * extra_light  = 200
+ * light        = 300
+ * book         = 400
+ * normal       = 400
+ * medium       = 500
+ * demi_bold    = 600
+ * semi_bold    = 600
+ * semibold     = 600
+ * bold         = 700
+ * heavy        = 800
+ * black        = 900
+ *
+ * bolder       = bolder
+ * lighter      = lighter
+ *
+ * Inspired by: https://www.npmjs.com/package/tachyons-font-weight
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_font-weight_prefix     ?= $rapid_prefix
+$rapid_font-weight_responsive ?= $rapid_responsive
+$rapid_font-weight_build      ?= $rapid_build
+
+$rapid_font-weight_properties  = extend({
+        'fw': {
+            '': ('font-weight')
+        },
+    }, $rapid_font-weight_properties)
+
+$rapid_font-weight_sizes       = extend($font_weight, $rapid_font-weight_sizes)
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-font-weight-build($responsive=$rapid_font-weight_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort($rapid_font-weight_properties, $rapid_font-weight_sizes,
+        $template, $responsive)
+
+
+if $rapid_font-weight_build
+    {$rapid_font-weight_prefix}
+        rapid-font-weight-build()

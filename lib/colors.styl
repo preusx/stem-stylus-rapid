@@ -1,0 +1,48 @@
+/* ========================================================================
+ *
+ * Sizes
+ *
+ * Legend:
+ *
+ * bg = background-color
+ * cl = color
+ *
+ * Inspired by:
+ *      https://www.npmjs.com/package/tachyons-colors
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_colors_prefix      ?= $rapid_prefix
+$rapid_colors_responsive  ?= false
+$rapid_colors_theme_build ?= false
+
+$rapid_colors_properties   = extend({
+        'bg': {
+            '': ('background-color')
+        },
+        'cl': {
+            '': ('color')
+        }
+    }, $rapid_colors_properties)
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-colors-build($colors, $responsive=$rapid_colors_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort($rapid_colors_properties, $colors,
+        $template, $responsive)
+
+
+if $rapid_colors_theme_build
+    {$rapid_colors_prefix}
+        rapid-colors-build(cs-settings().color)

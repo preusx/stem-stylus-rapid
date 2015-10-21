@@ -1,0 +1,66 @@
+/* ========================================================================
+ *
+ * Display
+ *
+ * Legend:
+ *
+ * d = display
+ *
+ * n     = none
+ * i     = inline
+ * b     = block
+ * ib    = inline-block
+ * it    = inline-table
+ * t     = table
+ * tc    = table-cell
+ * tcol  = table-column
+ * tcolg = table-column-group
+ *
+ * Inspired by:
+ *      https://www.npmjs.com/package/tachyons-display
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_display_prefix     ?= $rapid_prefix
+$rapid_display_responsive ?= $rapid_responsive
+$rapid_display_build      ?= $rapid_build
+
+$rapid_display_properties  = extend({
+        'd': {
+            '': ('display')
+        }
+    }, $rapid_display_properties)
+
+$rapid_display_sizes       = {
+    'n':     none
+    'i':     inline
+    'b':     block
+    'ib':    inline-block
+    'it':    inline-table
+    't':     table
+    'tc':    table-cell
+    'tcol':  table-column
+    'tcolg': table-column-group
+}
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-display-build($responsive=$rapid_display_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort($rapid_display_properties, $rapid_display_sizes,
+        $template, $responsive)
+
+
+if $rapid_display_build
+    {$rapid_display_prefix}
+        rapid-display-build()

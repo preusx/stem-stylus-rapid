@@ -1,0 +1,80 @@
+/* ========================================================================
+ *
+ * Spacing
+ *
+ * An eight step powers of two scale ranging from 0 to 16rem.
+ *
+ * Legend:
+ *
+ * p = padding
+ * m = margin
+ *
+ * a = all
+ * x = horizontal(x coord)
+ * y = vertical(y coord)
+ * t = top
+ * r = right
+ * b = bottom
+ * l = left
+ *
+ * n = none
+ * xs = extra small
+ * s = small
+ * m = medium
+ * l = large
+ * x = extra
+ * xl = extra large
+ * xxl = extra extra large
+ *
+ * Inspired by: https://www.npmjs.com/package/tachyons-spacing
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_spacing_prefix     ?= $rapid_prefix
+$rapid_spacing_responsive ?= $rapid_responsive
+$rapid_spacing_build      ?= $rapid_build
+
+$rapid_spacing_properties  = extend({
+        'p': {
+            'a': ('padding')
+            'x': ('padding-left' 'padding-right')
+            'y': ('padding-top'  'padding-bottom')
+            't': ('padding-top')
+            'r': ('padding-right')
+            'b': ('padding-bottom')
+            'l': ('padding-left')
+        },
+        'm': {
+            'a': ('margin')
+            'x': ('margin-left' 'margin-right')
+            'y': ('margin-top'  'margin-bottom')
+            't': ('margin-top')
+            'r': ('margin-right')
+            'b': ('margin-bottom')
+            'l': ('margin-left')
+        }
+    }, $rapid_spacing_properties)
+
+$rapid_spacing_sizes       = extend({ 'n': 0 }, grid-settings().size)
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-spacing-build($responsive=$rapid_spacing_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort($rapid_spacing_properties, $rapid_spacing_sizes,
+        $template, $responsive)
+
+
+if $rapid_spacing_build
+    {$rapid_spacing_prefix}
+        rapid-spacing-build()

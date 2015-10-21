@@ -1,0 +1,91 @@
+/* ========================================================================
+ *
+ * Align
+ *
+ * Legend:
+ *
+ * fl = float
+ * ta = text-align
+ * va = vertical-align
+ *
+ * n       = none
+ * l       = left
+ * r       = right
+ * c       = center
+ * base    = baseline
+ * sub     = sub
+ * sup     = super
+ * txt-top = text-top
+ * txt-btm = text-bottom
+ * mid     = middle
+ * top     = top
+ * btm     = bottom
+ *
+ * Inspired by:
+ *      https://www.npmjs.com/package/tachyons-floats
+ *      https://www.npmjs.com/package/tachyons-text-align
+ *      https://www.npmjs.com/package/tachyons-vertical-align
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_align_prefix     ?= $rapid_prefix
+$rapid_align_responsive ?= $rapid_responsive
+$rapid_align_build      ?= $rapid_build
+
+$rapid_align_sizes       = {
+    'l': unquote('left')
+    'r': unquote('right')
+}
+
+$rapid_valign_sizes       = {
+    'base':    unquote('baseline')
+    'sub':     unquote('sub')
+    'sup':     unquote('super')
+    'txt-top': unquote('text-top')
+    'txt-btm': unquote('text-bottom')
+    'mid':     unquote('middle')
+    'top':     unquote('top')
+    'btm':     unquote('bottom')
+}
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-float-build($responsive=$rapid_align_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort({'fl': {'': ('float')}},
+        extend({'n': unquote('none')}, $rapid_align_sizes), $template, $responsive)
+
+
+rapid-text-align-build($responsive=$rapid_align_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort({'ta': {'': ('text-align')}},
+        extend({'c': unquote('center')}, $rapid_align_sizes), $template, $responsive)
+
+
+rapid-vertical-align-build($responsive=$rapid_align_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort({'va': {'': ('vertical-align')}}, $rapid_valign_sizes,
+        $template, $responsive)
+
+
+rapid-align-build($responsive=$rapid_align_responsive)
+    rapid-float-build($responsive)
+    rapid-text-align-build($responsive)
+    rapid-vertical-align-build($responsive)
+
+
+if $rapid_align_build
+    {$rapid_align_prefix}
+        rapid-align-build()

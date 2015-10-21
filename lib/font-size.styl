@@ -1,0 +1,51 @@
+/* ========================================================================
+ *
+ * Font size
+ *
+ * Legend:
+ *
+ * fs = font-size
+ *
+ * n = 0
+ * xs = extra small
+ * 1, 2, 3, 4, 5 - heading font sizes
+ * xl = extra large
+ * xxl = extra extra large
+ *
+ * Inspired by: https://www.npmjs.com/package/tachyons-type-scale
+ *
+ * ======================================================================== */
+
+@require 'base'
+
+/**
+ * Variables
+ * ======================================================================== */
+
+$rapid_font-size_prefix     ?= $rapid_prefix
+$rapid_font-size_responsive ?= $rapid_responsive
+$rapid_font-size_build      ?= $rapid_build
+
+$rapid_font-size_properties  = extend({
+        'fs': {
+            '': ('font-size')
+        },
+    }, $rapid_font-size_properties)
+
+$rapid_font-size_sizes       = extend($font_size, $rapid_font-size_sizes)
+
+
+/**
+ * Mixins
+ * ======================================================================== */
+
+rapid-font-size-build($responsive=$rapid_font-size_responsive)
+    $template = rapid_default_template()
+
+    rapid-property-assort($rapid_font-size_properties, $rapid_font-size_sizes,
+        $template, $responsive)
+
+
+if $rapid_font-size_build
+    {$rapid_font-size_prefix}
+        rapid-font-size-build()
