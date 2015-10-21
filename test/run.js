@@ -6,6 +6,10 @@ var testRunnerConfig = {
     },
     import: [
       '../bower_components/stem-stylus-utils',
+      '../bower_components/stem-stylus-bem',
+      '../bower_components/stem-stylus-grid',
+      '../bower_components/stem-stylus-typo',
+      '../bower_components/stem-stylus-color-scheme',
       '../index'
       ]
   }

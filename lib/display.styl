@@ -54,11 +54,11 @@ $rapid_display_sizes       = {
  * Mixins
  * ======================================================================== */
 
-rapid-display-build($responsive=$rapid_display_responsive)
+rapid-display-build(responsive=$rapid_display_responsive)
     $template = rapid_default_template()
 
     rapid-property-assort($rapid_display_properties, $rapid_display_sizes,
-        $template, $responsive)
+        $template, responsive)
 
 
 if $rapid_display_build

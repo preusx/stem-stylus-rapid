@@ -43,18 +43,16 @@ $rapid_font-weight_properties  = extend({
         },
     }, $rapid_font-weight_properties)
 
-$rapid_font-weight_sizes       = extend($font_weight, $rapid_font-weight_sizes)
-
 
 /**
  * Mixins
  * ======================================================================== */
 
-rapid-font-weight-build($responsive=$rapid_font-weight_responsive)
+rapid-font-weight-build(weights=typo-settings().weight, responsive=$rapid_font-weight_responsive)
     $template = rapid_default_template()
 
-    rapid-property-assort($rapid_font-weight_properties, $rapid_font-weight_sizes,
-        $template, $responsive)
+    rapid-property-assort($rapid_font-weight_properties, weights,
+        $template, responsive)
 
 
 if $rapid_font-weight_build

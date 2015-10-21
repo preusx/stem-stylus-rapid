@@ -1,68 +1,297 @@
-// @describe Color Scheme
+// @describe Rapid helper classes
 
-// @it `cs_color`: Getting color and its alphas
+// @it Building the `display` helpers
+rapid-display-build()
 
-body
-    color cs_color('primary')
-    color cs_color('primary', secondary)
-    color cs_color('primary', disabled)
-    color cs_color('primary', divider)
-    color cs_color('primary', relief)
+// @expects
+.d-n{display:none}
+.d-i{display:inline}
+.d-b{display:block}
+.d-ib{display:inline-block}
+.d-it{display:inline-table}
+.d-t{display:table}
+.d-tc{display:table-cell}
+.d-tcol{display:table-column}
+.d-tcolg{display:table-column-group}
+
+
+// @it Building the `flex` helpers
+rapid-flex-build()
+
+// @expects
+.flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}
+.flex--column{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}
+.flex--wrap{-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.flex--center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
+.flex--baseline{-webkit-box-align:baseline;-webkit-align-items:baseline;-ms-flex-align:baseline;align-items:baseline}
+.flex--stretch{-webkit-box-align:stretch;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch}
+.flex--start{-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start}
+.flex--end{-webkit-box-align:end;-webkit-align-items:flex-end;-ms-flex-align:end;align-items:flex-end}
+.flex--first{-webkit-box-ordinal-group:0;-webkit-order:-1;-ms-flex-order:-1;order:-1}
+.flex--last{-webkit-box-ordinal-group:1025;-webkit-order:1024;-ms-flex-order:1024;order:1024}
+.flex--auto{-webkit-box-flex:1;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}
+.flex--grow{-webkit-box-flex:1;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto}
+.flex--none{-webkit-box-flex:0;-webkit-flex:none;-ms-flex:none;flex:none}"
+
+
+// @it Building the `spacing` helpers
+rapid-spacing-build()
+
+// @expects
+.p-anone{padding:0}
+.p-asm{padding:12px}
+.p-amd{padding:18px}
+.p-alg{padding:30px}
+.p-axl{padding:48px}
+.p-agiant{padding:72px}
+.p-amega{padding:108px}
+.p-agiga{padding:144px}
+.p-xnone{padding-left:0;padding-right:0}
+.p-xsm{padding-left:12px;padding-right:12px}
+.p-xmd{padding-left:18px;padding-right:18px}
+.p-xlg{padding-left:30px;padding-right:30px}
+.p-xxl{padding-left:48px;padding-right:48px}
+.p-xgiant{padding-left:72px;padding-right:72px}
+.p-xmega{padding-left:108px;padding-right:108px}
+.p-xgiga{padding-left:144px;padding-right:144px}
+.p-ynone{padding-top:0;padding-bottom:0}
+.p-ysm{padding-top:12px;padding-bottom:12px}
+.p-ymd{padding-top:18px;padding-bottom:18px}
+.p-ylg{padding-top:30px;padding-bottom:30px}
+.p-yxl{padding-top:48px;padding-bottom:48px}
+.p-ygiant{padding-top:72px;padding-bottom:72px}
+.p-ymega{padding-top:108px;padding-bottom:108px}
+.p-ygiga{padding-top:144px;padding-bottom:144px}
+.p-tnone{padding-top:0}
+.p-tsm{padding-top:12px}
+.p-tmd{padding-top:18px}
+.p-tlg{padding-top:30px}
+.p-txl{padding-top:48px}
+.p-tgiant{padding-top:72px}
+.p-tmega{padding-top:108px}
+.p-tgiga{padding-top:144px}
+.p-rnone{padding-right:0}
+.p-rsm{padding-right:12px}
+.p-rmd{padding-right:18px}
+.p-rlg{padding-right:30px}
+.p-rxl{padding-right:48px}
+.p-rgiant{padding-right:72px}
+.p-rmega{padding-right:108px}
+.p-rgiga{padding-right:144px}
+.p-bnone{padding-bottom:0}
+.p-bsm{padding-bottom:12px}
+.p-bmd{padding-bottom:18px}
+.p-blg{padding-bottom:30px}
+.p-bxl{padding-bottom:48px}
+.p-bgiant{padding-bottom:72px}
+.p-bmega{padding-bottom:108px}
+.p-bgiga{padding-bottom:144px}
+.p-lnone{padding-left:0}
+.p-lsm{padding-left:12px}
+.p-lmd{padding-left:18px}
+.p-llg{padding-left:30px}
+.p-lxl{padding-left:48px}
+.p-lgiant{padding-left:72px}
+.p-lmega{padding-left:108px}
+.p-lgiga{padding-left:144px}
+.m-anone{margin:0}
+.m-asm{margin:12px}
+.m-amd{margin:18px}
+.m-alg{margin:30px}
+.m-axl{margin:48px}
+.m-agiant{margin:72px}
+.m-amega{margin:108px}
+.m-agiga{margin:144px}
+.m-xnone{margin-left:0;margin-right:0}
+.m-xsm{margin-left:12px;margin-right:12px}
+.m-xmd{margin-left:18px;margin-right:18px}
+.m-xlg{margin-left:30px;margin-right:30px}
+.m-xxl{margin-left:48px;margin-right:48px}
+.m-xgiant{margin-left:72px;margin-right:72px}
+.m-xmega{margin-left:108px;margin-right:108px}
+.m-xgiga{margin-left:144px;margin-right:144px}
+.m-ynone{margin-top:0;margin-bottom:0}
+.m-ysm{margin-top:12px;margin-bottom:12px}
+.m-ymd{margin-top:18px;margin-bottom:18px}
+.m-ylg{margin-top:30px;margin-bottom:30px}
+.m-yxl{margin-top:48px;margin-bottom:48px}
+.m-ygiant{margin-top:72px;margin-bottom:72px}
+.m-ymega{margin-top:108px;margin-bottom:108px}
+.m-ygiga{margin-top:144px;margin-bottom:144px}
+.m-tnone{margin-top:0}
+.m-tsm{margin-top:12px}
+.m-tmd{margin-top:18px}
+.m-tlg{margin-top:30px}
+.m-txl{margin-top:48px}
+.m-tgiant{margin-top:72px}
+.m-tmega{margin-top:108px}
+.m-tgiga{margin-top:144px}
+.m-rnone{margin-right:0}
+.m-rsm{margin-right:12px}
+.m-rmd{margin-right:18px}
+.m-rlg{margin-right:30px}
+.m-rxl{margin-right:48px}
+.m-rgiant{margin-right:72px}
+.m-rmega{margin-right:108px}
+.m-rgiga{margin-right:144px}
+.m-bnone{margin-bottom:0}
+.m-bsm{margin-bottom:12px}
+.m-bmd{margin-bottom:18px}
+.m-blg{margin-bottom:30px}
+.m-bxl{margin-bottom:48px}
+.m-bgiant{margin-bottom:72px}
+.m-bmega{margin-bottom:108px}
+.m-bgiga{margin-bottom:144px}
+.m-lnone{margin-left:0}
+.m-lsm{margin-left:12px}
+.m-lmd{margin-left:18px}
+.m-llg{margin-left:30px}
+.m-lxl{margin-left:48px}
+.m-lgiant{margin-left:72px}
+.m-lmega{margin-left:108px}
+.m-lgiga{margin-left:144px}
+
+
+// @it Building the `sizes` helpers
+rapid-sizes-build()
+
+// @expects
+.wh-10{width:10%}
+.wh-20{width:20%}
+.wh-25{width:25%}
+.wh-33{width:33.333%}
+.wh-40{width:40%}
+.wh-50{width:50%}
+.wh-60{width:60%}
+.wh-66{width:66.333%}
+.wh-75{width:75%}
+.wh-80{width:80%}
+.wh-100{width:100%}
+.wh-bb{width:border-box}
+.wh-cb{width:content-box}
+.wh-mx{width:max-content}
+.wh-mn{width:min-content}
+.wh-av{width:available}
+.wh-fc{width:fit-content}
+.wh-at{width:auto}
+.wh-i{width:inherit}
+.ht-10{height:10%}
+.ht-20{height:20%}
+.ht-25{height:25%}
+.ht-33{height:33.333%}
+.ht-40{height:40%}
+.ht-50{height:50%}
+.ht-60{height:60%}
+.ht-66{height:66.333%}
+.ht-75{height:75%}
+.ht-80{height:80%}
+.ht-100{height:100%}
+.ht-bb{height:border-box}
+.ht-cb{height:content-box}
+.ht-mx{height:max-content}
+.ht-mn{height:min-content}
+.ht-av{height:available}
+.ht-fc{height:fit-content}
+.ht-at{height:auto}
+.ht-i{height:inherit}
+
+
+// @it Building the `font-size` helpers
+rapid-font-size-build()
+
+// @expects
+.fs-none{font-size:0}
+.fs-big{font-size:3.1875em}
+.fs-giant{font-size:4.1875em}
+.fs-mega{font-size:5.625em}
+.fs-small{font-size:1.125em}
+.fs-body{font-size:1em}
+.fs-medium{font-size:1em}
+.fs-regular{font-size:1em}
+.fs-caption{font-size:1.125em}
+.fs-subhead{font-size:1.3125em}
+.fs-lead{font-size:1.3125em}
+.fs-title{font-size:1.75em}
+.fs-headline{font-size:2.375em}
+.fs-n{font-size:0}
+.fs-s{font-size:1.125em}
+.fs-l{font-size:3.1875em}
+.fs-xl{font-size:4.1875em}
+.fs-xxl{font-size:5.625em}"
+
+
+// @it Building the `font-weight` helpers
+rapid-font-weight-build()
+
+// @expects
+.fw-thin{font-weight:100}
+.fw-xlight{font-weight:200}
+.fw-extra_light{font-weight:200}
+.fw-light{font-weight:300}
+.fw-book{font-weight:400}
+.fw-normal{font-weight:400}
+.fw-body{font-weight:400}
+.fw-medium{font-weight:500}
+.fw-demi_bold{font-weight:600}
+.fw-semi_bold{font-weight:600}
+.fw-semibold{font-weight:600}
+.fw-bold{font-weight:700}
+.fw-heavy{font-weight:800}
+.fw-black{font-weight:900}
+.fw-bolder{font-weight:bolder}
+.fw-lighter{font-weight:lighter}
+
+
+
+// @it Building the `align` helpers
+rapid-align-build()
 
 // @expects
 
-body{
-    color:#607d8b;
-    color:rgba(96,125,139,.7);
-    color:rgba(96,125,139,.3);
-    color:rgba(96,125,139,.12);
-    color:rgba(96,125,139,.05)}
+.fl-n{float:none}
+.fl-l{float:left}
+.fl-r{float:right}
+.ta-c{text-align:center}
+.ta-l{text-align:left}
+.ta-r{text-align:right}
+.va-base{vertical-align:baseline}
+.va-sub{vertical-align:sub}
+.va-sup{vertical-align:super}
+.va-txt-top{vertical-align:text-top}
+.va-txt-btm{vertical-align:text-bottom}
+.va-mid{vertical-align:middle}
+.va-top{vertical-align:top}
+.va-btm{vertical-align:bottom}
 
 
-// @it `cs_color`: Getting color darkening variations
-
-body
-    for d in (-2 -1 0 1 2 3)
-        color cs_color('primary', d)
-
-// @expects
-body{color:#6d8b9a;
-    color:#668493;
-    color:#607d8b;
-    color:#5b7784;
-    color:#56707d;
-    color:#526a76}
-
-
-// @it `cs_color`: Ratio 2 usage
-
-body
-    color cs_color(cs_color('primary', 2), divider)
-    color cs_color('primary', 2, divider)
+// @it Building the `colors` helpers
+rapid-colors-build(cs-settings().color)
 
 // @expects
-body{color:rgba(86,112,125,.12);
-    color:rgba(86,112,125,.12)}
+.bg-black{background-color:#111}
+.bg-white{background-color:#fff}
+.bg-blue{background-color:#2196f3}
+.bg-green{background-color:#4caf50}
+.bg-red{background-color:#f44336}
+.bg-yellow{background-color:#ffeb3b}
+.bg-netural{background-color:#ddd}
+.bg-primary{background-color:#607d8b}
+.bg-accent{background-color:#03a9f4}
+.bg-dtext{background-color:#111}
+.bg-ltext{background-color:#fff}
+.bg-highlight{background-color:#ffeb3b}
+
+.cl-black{color:#111}
+.cl-white{color:#fff}
+.cl-blue{color:#2196f3}
+.cl-green{color:#4caf50}
+.cl-red{color:#f44336}
+.cl-yellow{color:#ffeb3b}
+.cl-netural{color:#ddd}
+.cl-primary{color:#607d8b}
+.cl-accent{color:#03a9f4}
+.cl-dtext{color:#111}
+.cl-ltext{color:#fff}
+.cl-highlight{color:#ffeb3b}
 
 
-// @it `cs_color_fit`: More contrast font are applied
-
-body
-    color cs_color_fit('primary', bg:#000)
-
-body
-    color cs_color_fit('primary', #ff0, bg:#000)
-
-body
-    background-color #444
-    color cs_color_fit('primary', #ff0)
-
-body
-    background-color #fff
-    color cs_color_fit('primary', 'yellow')
-
-// @expects
-body{color:#fff}
-body{color:#ff0}
-body{background-color:#444;color:#ff0}
-body{background-color:#fff;color:#607d8b}

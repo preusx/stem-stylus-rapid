@@ -10,6 +10,13 @@ $rapid_responsive  ?= false
  * Mixins
  * ======================================================================== */
 
+map(data, function)
+    for i in data
+        data[i] = function(data[i])
+
+    return data
+
+
 /**
  * Rapid default template
  */

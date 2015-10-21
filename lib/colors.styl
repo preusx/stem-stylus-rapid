@@ -36,11 +36,11 @@ $rapid_colors_properties   = extend({
  * Mixins
  * ======================================================================== */
 
-rapid-colors-build($colors, $responsive=$rapid_colors_responsive)
+rapid-colors-build($colors, responsive=$rapid_colors_responsive)
     $template = rapid_default_template()
 
     rapid-property-assort($rapid_colors_properties, $colors,
-        $template, $responsive)
+        $template, responsive)
 
 
 if $rapid_colors_theme_build

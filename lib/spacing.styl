@@ -17,15 +17,6 @@
  * b = bottom
  * l = left
  *
- * n = none
- * xs = extra small
- * s = small
- * m = medium
- * l = large
- * x = extra
- * xl = extra large
- * xxl = extra extra large
- *
  * Inspired by: https://www.npmjs.com/package/tachyons-spacing
  *
  * ======================================================================== */
@@ -61,18 +52,19 @@ $rapid_spacing_properties  = extend({
         }
     }, $rapid_spacing_properties)
 
-$rapid_spacing_sizes       = extend({ 'n': 0 }, grid-settings().size)
+$rapid_spacing_sizes       = extend({ 'n': 0 }, )
 
 
 /**
  * Mixins
  * ======================================================================== */
 
-rapid-spacing-build($responsive=$rapid_spacing_responsive)
+rapid-spacing-build(sizes=map(grid-settings().size, grid_size),
+        responsive=$rapid_spacing_responsive)
     $template = rapid_default_template()
 
-    rapid-property-assort($rapid_spacing_properties, $rapid_spacing_sizes,
-        $template, $responsive)
+    rapid-property-assort($rapid_spacing_properties, sizes,
+        $template, responsive)
 
 
 if $rapid_spacing_build

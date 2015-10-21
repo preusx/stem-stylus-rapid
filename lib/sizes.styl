@@ -79,11 +79,11 @@ $rapid_sizes_sizes       = {
  * Mixins
  * ======================================================================== */
 
-rapid-sizes-build($responsive=$rapid_sizes_responsive)
+rapid-sizes-build(sizes=$rapid_sizes_sizes,responsive=$rapid_sizes_responsive)
     $template = rapid_default_template()
 
-    rapid-property-assort($rapid_sizes_properties, $rapid_sizes_sizes,
-        $template, $responsive)
+    rapid-property-assort($rapid_sizes_properties, sizes,
+        $template, responsive)
 
 
 if $rapid_sizes_build

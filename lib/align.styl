@@ -59,31 +59,31 @@ $rapid_valign_sizes       = {
  * Mixins
  * ======================================================================== */
 
-rapid-float-build($responsive=$rapid_align_responsive)
+rapid-float-build(responsive=$rapid_align_responsive)
     $template = rapid_default_template()
 
     rapid-property-assort({'fl': {'': ('float')}},
-        extend({'n': unquote('none')}, $rapid_align_sizes), $template, $responsive)
+        extend({'n': unquote('none')}, $rapid_align_sizes), $template, responsive)
 
 
-rapid-text-align-build($responsive=$rapid_align_responsive)
+rapid-text-align-build(responsive=$rapid_align_responsive)
     $template = rapid_default_template()
 
     rapid-property-assort({'ta': {'': ('text-align')}},
-        extend({'c': unquote('center')}, $rapid_align_sizes), $template, $responsive)
+        extend({'c': unquote('center')}, $rapid_align_sizes), $template, responsive)
 
 
-rapid-vertical-align-build($responsive=$rapid_align_responsive)
+rapid-vertical-align-build(responsive=$rapid_align_responsive)
     $template = rapid_default_template()
 
     rapid-property-assort({'va': {'': ('vertical-align')}}, $rapid_valign_sizes,
-        $template, $responsive)
+        $template, responsive)
 
 
-rapid-align-build($responsive=$rapid_align_responsive)
-    rapid-float-build($responsive)
-    rapid-text-align-build($responsive)
-    rapid-vertical-align-build($responsive)
+rapid-align-build(responsive=$rapid_align_responsive)
+    rapid-float-build(responsive)
+    rapid-text-align-build(responsive)
+    rapid-vertical-align-build(responsive)
 
 
 if $rapid_align_build

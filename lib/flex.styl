@@ -23,10 +23,10 @@ $rapid_flex_build      ?= $rapid_build
  * Styles
  * ======================================================================== */
 
-rapid-flex-build($responsive=$rapid_flex_responsive)
+rapid-flex-build(responsive=$rapid_flex_responsive)
     $selector = selector('&')
     $template = (!$selector || $selector == '.') ? '.%s' :\
-        $selector + $bem_ps + '%s'
+        $selector + $bem.s.p + '%s'
 
     $selector = $template % unquote('flex')
 
@@ -37,14 +37,14 @@ rapid-flex-build($responsive=$rapid_flex_responsive)
         display flex
 
         if !!$rapid_flex_responsive == true
-            +media-respond($bem_ms + '%s', false)
+            +media-respond($bem.s.m + '%s', false)
                 display -webkit-box
                 display -webkit-flex
                 display -ms-flexbox
                 display flex
 
 
-        &{$bem_ms}
+        &{$bem.s.m}
 
             &column
                 -webkit-box-orient vertical
