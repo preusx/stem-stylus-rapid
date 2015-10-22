@@ -31,9 +31,7 @@ $rapid_font-size_properties  = extend({
  * Mixins
  * ======================================================================== */
 
-rapid-font-size-build(sizes=map(typo-settings().size, @(size) {
-            return to_unit(typo_scaled(size), typo-settings().unit)
-        }),
+rapid-font-size-build(sizes=map(typo-settings().size, typo_scaled),
         responsive=$rapid_font-size_responsive)
     $template = rapid_default_template()
 
