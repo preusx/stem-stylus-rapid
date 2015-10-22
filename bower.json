@@ -13,14 +13,14 @@
     "stem-stylus-grid": "preusx/stem-stylus-grid#0.2.4",
     "stem-stylus-typo": "preusx/stem-stylus-typo#0.1.0",
     "stem-stylus-color-scheme": "preusx/stem-stylus-color-scheme#0.1.0",
-    "stem-stylus-utils": "preusx/stem-stylus-utils#0.4.15"
+    "stem-stylus-utils": "preusx/stem-stylus-utils#0.4.16"
   },
   "devDependencies": {
     "stem-stylus-bem": "preusx/stem-stylus-bem#0.1.6",
     "stem-stylus-grid": "preusx/stem-stylus-grid#0.2.4",
     "stem-stylus-typo": "preusx/stem-stylus-typo#0.1.0",
     "stem-stylus-color-scheme": "preusx/stem-stylus-color-scheme#0.1.0",
-    "stem-stylus-utils": "preusx/stem-stylus-utils#0.4.15"
+    "stem-stylus-utils": "preusx/stem-stylus-utils#0.4.16"
   },
   "ignore": [
     "**/.*",

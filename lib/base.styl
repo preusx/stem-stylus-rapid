@@ -2,7 +2,8 @@
  * Variables
  * ======================================================================== */
 
-$rapid_prefix      ?= '.'
+$rapid_type        ?= '.'
+$rapid_prefix      ?= $rapid_type
 $rapid_build       ?= false
 $rapid_responsive  ?= false
 
@@ -22,8 +23,9 @@ map(data, function)
  */
 rapid_default_template()
     $selector = selector('&')
-    $template = (!$selector || $selector == '.') ? '.%s' + $bem.s.p :\
-        ($selector == '$') ? '$%s' + $bem.s.p :\
+
+    $template = (!$selector) ? $rapid_type + '%s' + $bem.s.p :\
+        ($selector == '.') ? '.%s' + $bem.s.p :\
             $selector + $bem.s.p + '%s' + $bem.s.p
 
 
@@ -39,7 +41,7 @@ rapid-property-assort($properties, $sizes, $template, $responsive)
                 $selector = $template % unquote($p_name) + $p_type + $s_name
                 /{$selector}
                     if !!$responsive == true
-                        +media-respond($bem_ms + '%s', true)
+                        +media-respond($bem.s.m + '%s', true)
                             for $prop in $p_props
                                 {$prop} $s_size
 

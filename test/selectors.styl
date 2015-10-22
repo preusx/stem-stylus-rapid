@@ -1,0 +1,60 @@
+// @describe Rapid helper classes with selectors
+
+// @it Class selector
+.some-selector
+    rapid-display-build()
+
+// @expects
+.some-selector-d-n{display:none}
+.some-selector-d-i{display:inline}
+.some-selector-d-b{display:block}
+.some-selector-d-ib{display:inline-block}
+.some-selector-d-it{display:inline-table}
+.some-selector-d-t{display:table}
+.some-selector-d-tc{display:table-cell}
+.some-selector-d-tcol{display:table-column}
+.some-selector-d-tcolg{display:table-column-group}
+
+
+// @it Placeholders
+$rapid_type = '$'
+
+time('one1')
+rapid-display-build()
+timeEnd('one1')
+time('one2')
+rapid-font-size-build()
+timeEnd('one2')
+time('one3')
+rapid-spacing-build(responsive:true)
+timeEnd('one3')
+
+time('two')
+.alex
+    @mix
+        $d-it
+        $fs-l
+        $p-xmd
+        $p-xsm--sm
+
+.potato
+    @mix
+        $d-bl
+        $fs-body
+        $p-xsm
+timeEnd('two')
+
+timeShow('media')
+timeShow('media-query')
+timeShow('media-query-1')
+timeShow('media-query-1-1')
+timeShow('media-query-1-2')
+timeShow('media-query-1-3')
+timeShow('media-query-2')
+timeShow('media-block')
+timeShow('media-cachable')
+
+// @expects
+.alex{display:inline-table;font-size:3.1875em;padding-left:18px;padding-right:18px}
+@media only screen and (min-width:48em){.alex{padding-left:12px;padding-right:12px}}
+.potato{font-size:1em;padding-left:12px;padding-right:12px}
